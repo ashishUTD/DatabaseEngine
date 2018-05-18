@@ -1,0 +1,123 @@
+--------------------------------------------------------------------------------
+Welcome to AshishBaseLite
+AshishBaseLite Version v1.0
+Â©2018 Ashish Kumar
+
+Type "help;" to display supported commands.
+--------------------------------------------------------------------------------
+ashishsql> show tables;
+table_name	DBname
+ashishbase_tables	catalog
+
+ashishbase_columns	catalog
+
+ashishsql> SELECT * FROM ASHISHBASE_TABLES ;
+rowid	table_name	DBname	
+1	ashishbase_tables	catalog	
+2	ashishbase_columns	catalog	
+ashishsql> SELECT * FROM ASHISHBASE_COLUMNS ;
+rowid	table_name	column_name	data_type	ordinal_position	is_nullable	COLUMN_KEY	DBname	
+1	ashishbase_tables	rowid	INT	1	NO	PRI	
+2	ashishbase_tables	table_name	TEXT	2	NO	NULL	
+3	ashishbase_tables	DBname	TEXT	3	NO	NULL	
+4	ashishbase_columns	rowid	INT	1	NO	PRI	
+5	ashishbase_columns	table_name	TEXT	2	NO	NULL	
+6	ashishbase_columns	column_name	TEXT	3	NO	NULL	
+7	ashishbase_columns	data_type	TEXT	4	NO	NULL	
+8	ashishbase_columns	ordinal_position	TINYINT	5	NO	NULL	
+9	ashishbase_columns	is_nullable	TEXT	6	NO	NULL	
+10	ashishbase_columns	COLUMN_KEY	TEXT	7	NO	NULL	
+11	ashishbase_columns	DBname	TEXT	8	NO	NULL	
+ashishsql> CREATE TABLE PERSON_BASIC_DETAILS (
+ROW_ID INT PRIMARY KEY,
+NAME TEXT NOT NULL,
+AGE SMALLINT,
+DATE_OF_BIRTH DATE,
+WEIGHT REAL
+);
+ashishsql> SELECT * FROM ASHISHBASE_TABLES ;
+rowid	table_name	DBname	
+1	ashishbase_tables	catalog	
+2	ashishbase_columns	catalog	
+3	person_basic_details	user_data	
+ashishsql> SELECT * FROM ASHISHBASE_COLUMNS ;
+rowid	table_name	column_name	data_type	ordinal_position	is_nullable	COLUMN_KEY	DBname	
+1	ashishbase_tables	rowid	INT	1	NO	PRI	
+2	ashishbase_tables	table_name	TEXT	2	NO	NULL	
+3	ashishbase_tables	DBname	TEXT	3	NO	NULL	
+4	ashishbase_columns	rowid	INT	1	NO	PRI	
+5	ashishbase_columns	table_name	TEXT	2	NO	NULL	
+6	ashishbase_columns	column_name	TEXT	3	NO	NULL	
+7	ashishbase_columns	data_type	TEXT	4	NO	NULL	
+8	ashishbase_columns	ordinal_position	TINYINT	5	NO	NULL	
+9	ashishbase_columns	is_nullable	TEXT	6	NO	NULL	
+10	ashishbase_columns	COLUMN_KEY	TEXT	7	NO	NULL	
+11	ashishbase_columns	DBname	TEXT	8	NO	NULL	
+12	person_basic_details	row_id	int	1	YES	PRI	user_data	
+13	person_basic_details	name	text	2	NO	NULL	user_data	
+14	person_basic_details	age	smallint	3	YES	NULL	user_data	
+15	person_basic_details	date_of_birth	date	4	YES	NULL	user_data	
+16	person_basic_details	weight	real	5	YES	NULL	user_data	
+ashishsql> SELECT * FROM PERSON_BASIC_DETAILS;
+row_id	name	age	date_of_birth	weight	
+ashishsql> INSERT INTO TABLE  ( ROW_ID, NAME, AGE, DATE_OF_BIRTH, WEIGHT ) PERSON_BASIC_DETAILS	 VALUES( 1, JENNY CARTER, 28, 1990-03-31, 55);
+ashishsql> SELECT * FROM PERSON_BASIC_DETAILS;
+row_id	name	age	date_of_birth	weight	
+1	jenny carter	28	31/03/1990	55.0	
+ashishsql> CREATE TABLE PERSON_INFO (
+ROW_ID INT PRIMARY KEY,
+DEPENDENTS TINYINT,
+ADDRESS TEXT,
+PINCODE BIGINT,
+SALARY DOUBLE,
+PURCHASE_TIMESTAMP DATETIME
+);
+ashishsql> 
+SELECT * FROM ASHISHBASE_TABLES ;
+rowid	table_name	DBname	
+1	ashishbase_tables	catalog	
+2	ashishbase_columns	catalog	
+3	person_basic_details	user_data	
+4	person_info	user_data	
+ashishsql> SELECT * FROM ASHISHBASE_COLUMNS ;
+rowid	table_name	column_name	data_type	ordinal_position	is_nullable	COLUMN_KEY	DBname	
+1	ashishbase_tables	rowid	INT	1	NO	PRI	
+2	ashishbase_tables	table_name	TEXT	2	NO	NULL	
+3	ashishbase_tables	DBname	TEXT	3	NO	NULL	
+4	ashishbase_columns	rowid	INT	1	NO	PRI	
+5	ashishbase_columns	table_name	TEXT	2	NO	NULL	
+6	ashishbase_columns	column_name	TEXT	3	NO	NULL	
+7	ashishbase_columns	data_type	TEXT	4	NO	NULL	
+8	ashishbase_columns	ordinal_position	TINYINT	5	NO	NULL	
+9	ashishbase_columns	is_nullable	TEXT	6	NO	NULL	
+10	ashishbase_columns	COLUMN_KEY	TEXT	7	NO	NULL	
+11	ashishbase_columns	DBname	TEXT	8	NO	NULL	
+12	person_basic_details	row_id	int	1	YES	PRI	user_data	
+13	person_basic_details	name	text	2	NO	NULL	user_data	
+14	person_basic_details	age	smallint	3	YES	NULL	user_data	
+15	person_basic_details	date_of_birth	date	4	YES	NULL	user_data	
+16	person_basic_details	weight	real	5	YES	NULL	user_data	
+17	person_info	row_id	int	1	YES	PRI	user_data	
+18	person_info	dependents	tinyint	2	YES	NULL	user_data	
+19	person_info	address	text	3	YES	NULL	user_data	
+20	person_info	pincode	bigint	4	YES	NULL	user_data	
+21	person_info	salary	double	5	YES	NULL	user_data	
+22	person_info	purchase_timestamp	datetime	6	YES	NULL	user_data	
+ashishsql> SELECT * FROM PERSON_INFO;
+row_id	dependents	address	pincode	salary	purchase_timestamp	
+ashishsql> INSERT INTO TABLE (ROW_ID, DEPENDENTS, ADDRESS, PINCODE, SALARY, PURCHASE_TIMESTAMP) PERSON_INFO VALUES(1, 2, null, 75252, 120000, 2018-04-20_13:30:45);
+ashishsql> SELECT * FROM PERSON_INFO;
+row_id	dependents	address	pincode	salary	purchase_timestamp	
+1	2	null	75252	120000.0	20/04/2018 13:30:45	
+ashishsql> INSERT INTO TABLE (ROW_ID, DEPENDENTS, ADDRESS, PINCODE, SALARY, PURCHASE_TIMESTAMP) PERSON_INFO VALUES(2, 2, null, 75252, 120000, 2018-04-20_13:30:45);
+ashishsql> INSERT INTO TABLE  ( ROW_ID, NAME, AGE, DATE_OF_BIRTH, WEIGHT ) PERSON_BASIC_DETAILS	 VALUES( 2, JIMMY CARTER, 28, 1990-03-31, 55);
+ashishsql> SELECT * FROM PERSON_BASIC_DETAILS;
+row_id	name	age	date_of_birth	weight	
+1	jenny carter	28	31/03/1990	55.0	
+2	jimmy carter	28	31/03/1990	55.0	
+ashishsql> UPDATE PERSON_INFO SET DEPENDENTS = 4 WHERE ROW_ID = 1;
+ashishsql> SELECT * FROM PERSON_INFO;
+row_id	dependents	address	pincode	salary	purchase_timestamp	
+1	4	null	75252	120000.0	20/04/2018 13:30:45	
+2	2	null	75252	120000.0	20/04/2018 13:30:45	
+ashishsql> 
